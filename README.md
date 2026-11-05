@@ -1,20 +1,37 @@
-# Forward search bidireccional en Neovim-lilypond-suite
+# lilypond-forward-search.nvim
 
-## Descripción
+Forward search (Neovim → PDF) for LilyPond, without SyncTeX. Uses the
+`textedit://` links that LilyPond embeds in the PDF, extracted with PyMuPDF,
+and sends them to Zathura via D-Bus.
 
-Este pequeño proyecto es una implementación en neovim/zathura de la funcionalidad de Frescobaldi para la edición en Lilypond.
+No patched viewers, no `.synctex` files, no external indexers. Just the
+links LilyPond already writes and a D-Bus call.
 
-## Requisitos
+## Features
 
-- PyMuPdf
-- neovim-lilypond-suite
+- **Forward search** (Neovim → PDF): jump from the cursor to the exact note
+  in the PDF, with a visible highlight.
+- **Multiple PDFs**: choose which `\book` output to display when a single
+  `.ly` produces several PDFs.
+- **Multi-file projects**: compile from any `\include` using a
+  `% master: main.ly` comment at the top of the file.
+- **Follow mode**: automatically sync the PDF as you move the cursor.
 
-## main file
+## Requirements
 
-Incluí una pequeña opción para trabajar con libros con includes. La idea es que si el archivo no compila, sino que lo que lo hace es otro archivo, hay que poner
+- Neovim (0.9+)
+- [nvim-lilypond-suite](https://github.com/martineausimon/nvim-lilypond-suite)
+- [Zathura](https://pwmt.org/projects/zathura/) with D-Bus enabled
+- Python 3 with [PyMuPDF](https://pymupdf.readthedocs.io/)
 
-% master: file.ly
+## Installation
 
-así, comentado, para que lo reconozca. Así, cuando se compila con F5, se compila file.ly directamente.
+With [lazy.nvim](https://github.com/folke/lazy.nvim):
 
-Eso sí, todos los archivos .ly (el master y los includes) deben estar en la misma carpeta.
+```lua
+{
+  "fsarud/lilypond-forward-search.nvim",
+  dependencies = { "martineausimon/nvim-lilypond-suite" },
+  ft = { "lilypond", "tex", "texinfo" },
+  opts = {},
+}
