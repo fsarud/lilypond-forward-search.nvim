@@ -71,7 +71,7 @@ If your main file is in a different directory (or you want to compile from an `\
 
 ```lilypond
 % master: main.ly
-\version "2.24.0"
+\version "2.26.0"
 ```
 
 F5 will compile `main.ly` instead of the current buffer.
