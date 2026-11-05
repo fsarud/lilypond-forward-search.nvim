@@ -24,7 +24,7 @@ With [lazy.nvim](https://github.com/folke/lazy.nvim):
 
 ```lua
 {
-  "YOUR-USER/lilypond-forward-search.nvim",
+  "fsarud/lilypond-forward-search.nvim",
   dependencies = { "martineausimon/nvim-lilypond-suite" },
   ft = { "lilypond", "tex", "texinfo" },
   opts = {},
@@ -92,7 +92,7 @@ No SyncTeX, no patched viewers. Just the data LilyPond already provides.
 - Multiple PDFs: done
 - Multi-file projects (`% master:`): done
 - Follow mode: done
-- Inverse search (PDF → Neovim): pending
+- Inverse search (PDF → Neovim): already tackled by lilypond-neovim-suite
 
 ## License
 
