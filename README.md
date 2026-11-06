@@ -37,7 +37,7 @@ Default options (all optional):
 
 ```lua
 {
-  "YOUR-USER/lilypond-forward-search.nvim",
+  "fsarud/lilypond-forward-search.nvim",
   opts = {
     keymaps = {
       compile = "<F5>",
